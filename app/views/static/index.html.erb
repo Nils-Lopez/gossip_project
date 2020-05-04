@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GossipProject - Home</title>
+	<script src="https://kit.fontawesome.com/01d50de81e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body style="margin-left: 10%; margin-right: 10%;">
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	<h1 style="color: white;"><i class="fas fa-mask"></i> The Gossip Project</h1>
+	<ul class="navbar-nav" style="margin-left: 50px;">
+    <li class="nav-item">
+      <%= link_to "Home", "index", class: "nav-link" , style: "color:white;"%>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Contact us", "contact", class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "About us", "team", class: "nav-link" %>
+    </li>
+  </ul>  
+ 	</nav>
+  <br>
+  <br>
+    <center>
+      <h1>Tous les gossips:</h1>
+      <br><br>
+ 	    <% Gossip.all.each do |gossip| %>
+        <div class="card w-50">
+        <div class="card-header">
+          <h3> Gossip n° <%=gossip.id%></h3>
+        </div>
+        <div class="card-body">
+ 		     <h3 class="card-title"> <%= link_to gossip.title, "gossip/#{gossip.id}" %> </h3>
+ 		     <p class="card-text"> <%= gossip.user.first_name + " " + gossip.user.last_name%> </p>
+
+        </div>
+      </div>
+      <br><br>
+    	<% end %>
+    </center>
+ </body>
+ </html>
