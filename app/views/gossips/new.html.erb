@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Gossip</title>
+	
+</head>
+<body>
+	<br><br>
+	<center>
+			<div class="card" style="width: 500px;">
+				<div class="card-header">
+					<h2 class="card-title">Créer un gossip</h2>
+				</div>
+				<div class="card-body">
+					<%= form_tag url_for(action: 'create'), method: "post" do %>
+					  <h4 class="card-subtitle"> Le titre du gossip : </h4>
+					  <form action="/gossips" method="POST"></br>
+					  <input type="text" name="title"  placeholder="Titre">
+					  </br><br>
+					  <h4> Le gossip : </h4></br>
+					  <form action="/gossips" method="POST">
+					  <input type="textarea" name="content" placeholder="Contenu"><br>
+						<% flash.each do |key, value| %>
+    						<div class="flash <%= key %>" style="color: red;"><%= value %></div>
+						<% end %>
+					  <br>
+					  <input type="submit" value="Créer le gossip" class="btn btn-dark">
+					</form>
+			      <% end %>
+			    </div>
+		    </div>
+	 
+	</center>
+</body>
+</html>

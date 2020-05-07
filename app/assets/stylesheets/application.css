@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+.card-header{
+	border:none;
+}
+.card {
+	border:none;
+}
+.w-50 {
+	border: none;
+}

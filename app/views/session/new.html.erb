@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sign in</title>
+</head>
+<body>
+	<center>
+		<div class="card" style="width: 500px;">
+				<div class="card-header">
+					<h2 class="card-title">Se connecter</h2>
+				</div>
+				<div class="card-body">
+					<%= form_tag url_for(action: 'create'), method: "post" do %>
+					<form action="/" method="POST"></br>
+					  	
+					  	<div class="form-group">					
+						    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="exemple@email.com">
+						 </div>
+						 <br>
+						 <div class="form-group">					
+						    <input type="password" class="form-control" name="pwd" placeholder="Mot de passe">						    
+						 </div>
+						 <% flash.each do |key, value| %>
+    						<div class="flash <%= key %>" style="color: red;"><%= value %></div>
+						<% end %>
+					  <br>
+					  <input type="submit" value="Se connecter" class="btn btn-primary">
+					
+					</form>
+					<%end%>
+				</div>
+		</div>
+	</center>
+</body>
+</html>

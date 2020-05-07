@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GossipProject - Home</title>
+ 
+</head>
+<body style="margin-left: 10%; margin-right: 10%;">
+  <br>
+  <br>
+    <center>
+      <%if Gossip.where(user: User.where(city: City.find(@id))).count > 0%>
+        <h1>Gossips à <%=City.find(@id).name%> :</h1>
+        <br><br>
+        <%Gossip.where(user: User.where(city: City.find(@id))).each do |gossip|%>
+              <div class="card w-50">
+              <div class="card-header">
+                <h3> Gossip n° <%=gossip.id%></h3>
+              </div>
+              <div class="card-body">
+               <h3 class="card-title" style="color: black;"> <%= gossip.title %> </h3>
+               <p class="card-text" style="color: black;"> <%= gossip.user.first_name + " " + gossip.user.last_name%> </p>
+               <%= link_to "Lire la suite ...", "../gossips/#{gossip.id}", class: "btn btn-secondary" %>
+              </div>
+            </div>
+            <br><br>
+        <%end%>
+
+      <%else%>
+          <br><br>
+          <h1> <i class="fas fa-search fa-8x"></i> </h1><br>
+            <h1>Désolé il n'y a actuellement aucun gossip répertorié à <%=City.find(@id).name%>...</h1>
+            <h1>Revenez plus tard !</h1>
+      <%end%>
+    </center>
+ </body>
+ </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GossipProject - Home</title>
+	
+</head>
+<body style="margin-left: 10%; margin-right: 10%;">
+  <br>
+  <br>
+    <center>
+      <h1>Toutes les villes :</h1>
+      <br><br>
+ 	    <% City.all.each do |city| %>
+        <div class="card w-50">
+        <div class="card-header">
+          <h3><%=city.name%> (<%=city.zip_code%>)</h3>
+        </div>
+        <div class="card-body">
+         <%= link_to "Afficher les gossips de #{city.name}", "cities/#{city.id}", class: "btn btn-secondary" %>
+        </div>
+      </div>
+      <br><br>
+    	<% end %>
+    </center>
+ </body>
+ </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New account</title>
+	
+</head>
+<body>
+	<center>
+		<div class="card" style="width: 500px;">
+				<div class="card-header">
+					<h2 class="card-title">Créer un compte</h2>
+				</div>
+				<div class="card-body">
+					<%= form_tag url_for(action: 'create'), method: "post" do %>
+					  <form action="/gossips" method="POST"></br>
+					  	<div class="row">
+						    <div class="col">
+						      <input type="text" name="first_name" class="form-control" placeholder="Prénom">
+						    </div>
+						    <div class="col">
+						      <input type="text" name="last_name" class="form-control" placeholder="Nom">
+						    </div>
+						 </div>
+						 <br>
+					  	<div class="form-group">
+    						
+						    <input type="email" class="form-control" name="input_email" aria-describedby="emailHelp" placeholder="exemple@email.com">
+						    <small id="emailHelp" class="form-text text-muted">Votre email servira <strong>uniquement</strong> à récupérer votre mot de passe, en cas d'oubli.</small>
+						 </div>
+						 <div class="form-group">
+						    <textarea class="form-control" name="desc" aria-describedby="descHelp" placeholder="Biographie ..."></textarea>
+						    <small id="descHelp" class="form-text text-muted">Décrivez vous en quelques lignes pour que les autres utilisateurs sachent qui vous êtes</small>
+						 </div>
+						 <div class="form-group">
+  								<input type="text" placeholder="Age" class="form-control" id="birthday" name="birthday">
+						 </div>
+						     <div class="form-group">
+
+						      <select id="inputState" name="city" class="form-control">
+						        <option selected>Votre ville...</option>
+						        <%= City.all.each do |city| %>
+						        <option name="city" value="<%=city.id%>"><%= city.name %></option>
+						        <%end%>
+						      </select>
+						    </div>
+						 <div class="form-group">
+						    
+						    <input type="password" class="form-control" id="input_password" name="input_password" placeholder="Mot de passe"> 
+						 </div>
+						 <div class="form-group">
+						    
+						    <input type="password" class="form-control" id="input_password2" name="input_password2" placeholder="Confirmez votre mot de passe"> 
+						 </div>
+						 <input type="checkbox" onclick="showPassword()">   <label>  Afficher les mots de passe</label>
+						<% flash.each do |key, value| %>
+    						<div class="flash <%= key %>" style="color: red;"><%= value %></div>
+						<% end %>
+					  <br>
+					  <input type="submit" value="Créer le compte" class="btn btn-success">
+					</form>
+			      <% end %>
+			    </div>
+		    </div>
+	</center>
+</body>
+</html>
