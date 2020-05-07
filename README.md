@@ -1,1 +1,0 @@
-# gossip_project
