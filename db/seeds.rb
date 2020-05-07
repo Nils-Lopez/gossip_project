@@ -5,17 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+City.destroy_all
+User.destroy_all
+Gossip.destroy_all
+PrivateMessage.destroy_all
+Tag.destroy_all
+GossipTag.destroy_all
+Comment.destroy_all
+
 10.times do
   City.create(
-    name: Faker::Address.city, 
+    name: Faker::Movies::StarWars.planet, 
     zip_code: Faker::Address.zip_code
     )
 end
 
 10.times do 
   User.create(
-    first_name: Faker::Name.first_name, 
-    last_name: Faker::Name.last_name, 
+    first_name: Faker::Movies::StarWars.character.split[0], 
+    last_name: Faker::Movies::StarWars.character.split[1], 
     desc: Faker::Quote.yoda,
     email: Faker::Internet.free_email,
     age: Faker::Number.between(from: 16, to: 90),
@@ -25,14 +33,14 @@ end
 
 20.times do 
   Gossip.create(
-    title: Faker::Book.title,
-    content: Faker::Movies::StarWars.quote,
+    title: Faker::Movies::Hobbit.location,
+    content:  Faker::Movies::Hobbit.quote,
     user_id: Faker::Number.between(from: 1, to: 10)
     )
 end
 
 10.times do 
-  Tag.create(title: Faker::Food.fruits)
+  Tag.create(title: Faker::TvShows::GameOfThrones.house)
 end
 
 20.times do
@@ -54,7 +62,7 @@ end
 20.times do
   Comment.create(
     content: Faker::Movies::StarWars.wookiee_sentence,
-    gossip_id: Faker::Number.between(from: 1, to: 20), 
+    gossip_id: Faker::Number.between(from: 32, to: 50), 
     user_id: Faker::Number.between(from: 1, to: 10)
     )
 end

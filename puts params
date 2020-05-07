@@ -1,0 +1,22 @@
+
+[1mFrom:[0m /home/nils/Documents/thp/the-gossip-project/app/controllers/users_controller.rb:13 UsersController#create:
+
+    [1;34m12[0m: 	[32mdef[0m [1;34mcreate[0m
+ => [1;34m13[0m: 		binding.pry
+    [1;34m14[0m: 		[32mif[0m params[[33m:input_password[0m] == params[[33m:input_password2[0m] && params[[33m:input_password[0m].length > [1;34m6[0m 
+    [1;34m15[0m:     	@user = [1;34;4mUser[0m.create([35mfirst_name[0m: params[[33m:first_name[0m], [35mlast_name[0m: params[[33m:last_name[0m], [35memail[0m: params[[33m:input_email[0m], [35mpassword[0m: params[[33m:input_password[0m])
+    [1;34m16[0m:     	puts [31m[1;31m"[0m[31m=[1;31m"[0m[31m[0m * [1;34m60[0m
+    [1;34m17[0m:     	puts params[[33m:input_password[0m]
+    [1;34m18[0m:     	puts @user.password
+    [1;34m19[0m:     	puts [31m[1;31m"[0m[31m=[1;31m"[0m[31m[0m * [1;34m60[0m
+    [1;34m20[0m:     	redirect_to [31m[1;31m"[0m[31m../users/#{@user.id}[0m[31m[1;31m"[0m[31m[0m [32mand[0m [32mreturn[0m
+    [1;34m21[0m:     [32melse[0m
+    [1;34m22[0m:       [32mif[0m params[[33m:input_password[0m] != params[[33m:input_password2[0m] 
+    [1;34m23[0m:         flash[[33m:danger[0m] = [31m[1;31m"[0m[31mLes mots de passes ne correspondent pas![1;31m"[0m[31m[0m
+    [1;34m24[0m:       [32melse[0m
+    [1;34m25[0m:         flash[[33m:danger[0m] = [31m[1;31m"[0m[31mMot de passe trop court, veuillez le modifier et réessayer (minimum 6 charactères) ![1;31m"[0m[31m[0m
+    [1;34m26[0m:       [32mend[0m
+    [1;34m27[0m:     	redirect_to [31m[1;31m'[0m[31m/users/new[1;31m'[0m[31m[0m
+    [1;34m28[0m:     [32mend[0m
+    [1;34m29[0m: 	[32mend[0m
+
